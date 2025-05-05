@@ -1,9 +1,14 @@
 <?php
-function themembb_theme_support(){
-    add_theme_support('title_tag'); // dynamic title tags
-}
+function themembb_theme_support() {
+    add_theme_support('title_tag');
+    add_theme_support('post-thumbnails');
 
-add_action( 'after_setup_theme', 'themembb_theme_support' );
+    // Custom sizes
+    add_image_size('custom-thumb-small', 150, 150, true);
+    add_image_size('custom-thumb-wide', 600, 300, true);
+}
+add_action('after_setup_theme', 'themembb_theme_support');
+
 
 
 function themembb_register_styles() {
