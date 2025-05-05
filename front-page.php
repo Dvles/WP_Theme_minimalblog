@@ -2,6 +2,18 @@
 get_header();
 
 ?>
+
+<?php
+
+if( have_posts()){
+
+    while (have_posts()){
+        the_post();
+        the_content(); 
+    }
+}
+
+?>
     <!-- Home page spotlight -->
     <main class="homepage1-main-content">
         <section class="splide" aria-label="Splide Basic HTML Example">

@@ -15,11 +15,21 @@
         <div class="navbar">
             <h2><a href="index.html">Minimal Portfolio</a></h2>
             <nav class="nav-flex">
-                <ul>
-                    <li><a href="work.html">works</a></li>
-                    <li><a href="about.html">about</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
+                <?php
+                    wp_nav_menu(
+                        array(
+                            'menu'=>'primay',
+                            'container'=>'',
+                            'theme_location' => 'primary',
+                            'items_wrap' => '<ul id="" class"">%3$s</ul>' // emty classes & id to avoid WP from adding its own??
+                        )
+                    );
+                ?>
             </nav>
         </div>
+
     </header>
+<!--     <div class="main-wrapper">
+        <h1 class=""> <?php the_title(); ?></h1>
+            
+    </div> -->

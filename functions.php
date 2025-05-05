@@ -9,7 +9,16 @@ function themembb_theme_support() {
 }
 add_action('after_setup_theme', 'themembb_theme_support');
 
+function themembb_menus(){
+    $locations = array(
+        'primary' => "Desktop primary header menu",
+        'footer' => "Footer menu Items"
+    );
 
+    register_nav_menus($locations);
+}
+
+add_action('init', 'themembb_menus');
 
 function themembb_register_styles() {
     $theme_dir = get_template_directory();
