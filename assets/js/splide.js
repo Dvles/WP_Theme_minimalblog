@@ -1,15 +1,17 @@
-new Splide('.splide', {
-  type        : 'loop',
-  perPage     : 1,
-  autoplay    : true,
-  interval    : 3000,
-  pauseOnHover: true,
-  arrows      : true,
-  pagination  : true,
-  drag        : true,         // enables mouse drag
-  flickPower  : 600,          // adjust swipe strength
-  flickMaxPages: 1,           // prevent swiping too far
-}).mount();
+document.addEventListener('DOMContentLoaded', function () {
+  new Splide('.splide', {
+    type        : 'loop',
+    perPage     : 1,
+    autoplay    : true,
+    interval    : 3000,
+    pauseOnHover: true,
+    arrows      : true,
+    pagination  : true,
+    drag        : true,
+    flickPower  : 600,
+    flickMaxPages: 1,
+  }).mount();
+});
 
 
 document.addEventListener('DOMContentLoaded', function () {
