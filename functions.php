@@ -12,6 +12,36 @@ function themembb_theme_support() {
 }
 add_action('after_setup_theme', 'themembb_theme_support');
 
+
+function my_theme_customize_register( $wp_customize ) {
+    // Add a new section for Social Media Links
+    $wp_customize->add_section('social_media_section', array(
+        'title'       => __('Social Media Links', 'your-theme'),
+        'priority'    => 20,  // Set a unique priority for this section
+        'description' => __('Edit your social media links displayed in the footer.'),
+    ));
+
+    // Add each social media platform
+    $socials = ['linkedin', 'instagram', 'behance'];
+    foreach ($socials as $social) {
+        $wp_customize->add_setting("{$social}_url", array(
+            'default'   => '',
+            'transport' => 'refresh',
+            'sanitize_callback' => 'esc_url_raw',
+        ));
+
+        $wp_customize->add_control("{$social}_url", array(
+            'label'   => ucfirst($social) . ' URL',
+            'section' => 'social_media_section',
+            'type'    => 'url',
+        ));
+    }
+}
+
+add_action('customize_register', 'my_theme_customize_register');
+
+
+
 function themembb_menus(){
     $locations = array(
         'primary' => "Desktop primary header menu",

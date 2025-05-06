@@ -8,10 +8,23 @@
             </div>
 
             <div class="footer-links">
-                <a href="#" class="footer-link block__link">Linkedin</a>
-                <a href="#" class="footer-link block__link">Instagram</a>
-                <a href="#" class="footer-link block__link">Behance</a>
+            <?php
+            $socials = ['linkedin', 'instagram', 'behance'];
+            foreach ($socials as $social) {
+                $url = get_theme_mod("{$social}_url");
+                if ($url) {
+                    printf(
+                        '<a href="%s" target="_blank" class="footer-link block__link">%s</a>',
+                        esc_url($url),
+                        ucfirst($social)
+                    );
+                }
+            }
+            ?>
             </div>
+
+
+
         </div>
     </footer>
     <?php wp_footer(); ?>
