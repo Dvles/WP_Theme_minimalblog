@@ -20,7 +20,7 @@
                    // $logo = wp_get_attachement_image_src($custom_logo_id);
                // }
             ?>
-            <h2><a href="index.html"><?php echo get_bloginfo('name');?></a></h2>
+            <h2><a href="<?php echo home_url(); ?>"><?php echo get_bloginfo('name');?></a></h2>
             <nav class="nav-flex">
                 <?php
                     wp_nav_menu(
