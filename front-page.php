@@ -1,54 +1,40 @@
 <?php
 get_header();
-
 ?>
 
-<?php
+<main class="homepage1-main-content">
+    <section class="splide" aria-label="Project slider">
+        <div class="splide__track">
+            <ul class="splide__list">
+                <?php
+                // Custom query for latest blog posts
+                $latest_posts = new WP_Query([
+                    'post_type' => 'post',
+                    'posts_per_page' => 5
+                ]);
 
-if( have_posts()){
-
-    while (have_posts()){
-        the_post();
-        the_content(); 
-    }
-}
-
-?>
-    <!-- Home page spotlight -->
-    <main class="homepage1-main-content">
-        <section class="splide" aria-label="Splide Basic HTML Example">
-            <div class="splide__track">
-                <ul class="splide__list">
-                    
+                if ($latest_posts->have_posts()) :
+                    while ($latest_posts->have_posts()) : $latest_posts->the_post(); ?>
                         <li class="splide__slide">
                             <div class="homepage-image-container">
-                                <a href="./article.html"><img src="https://placehold.co/500x400" class="">
+                                <a href="<?php the_permalink(); ?>">
+                                    <img src="https://placehold.co/500x400" alt="<?php the_title(); ?>">
                                 </a>
                             </div>
-
-                            <a href="./article.html"> <h2 class="hero-title">Redefining a new era of Kenyan Design</h2>
+                            <a href="<?php the_permalink(); ?>">
+                                <h2 class="hero-title"><?php the_title(); ?></h2>
                             </a>
                         </li>
-                    
-                    <li class="splide__slide">
-                        <div class="homepage-image-container">
-                            <a href="./article.html"></a><img src="https://placehold.co/500x400" class=""></a>
-                        </div>
-                        <a href="./article.html"></a><h2 class="hero-title">Typography experimentations with Javascript</h2></a>
-                    </li>
-                    <li class="splide__slide">
-                        <div class="homepage-image-container">
-                            <a href="./article.html"></a><img src="https://placehold.co/500x400" class=""></a>
-                        </div>
-                        <a href="./article.html"></a><h2 class="hero-title">Abstractions within Muluba artforms</h2></a>
-                    </li>
-                </ul>
-            </div>
-        </section>
+                    <?php endwhile;
+                    wp_reset_postdata(); // important!
+                else : ?>
+                    <p>No recent posts found.</p>
+                <?php endif; ?>
+            </ul>
+        </div>
+    </section>
+</main>
 
-    </main>
-
-    <?php
+<?php
 get_footer();
-
 ?>
