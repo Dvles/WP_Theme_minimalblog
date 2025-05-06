@@ -1,11 +1,14 @@
 <?php
 function themembb_theme_support() {
     add_theme_support('title_tag');
-    add_theme_support('post-thumbnails');
+    add_theme_support('custom-logo');
+    add_theme_support('post-thumbnails'); // featured image to posts
 
     // Custom sizes
     add_image_size('custom-thumb-small', 150, 150, true);
     add_image_size('custom-thumb-wide', 600, 300, true);
+
+    
 }
 add_action('after_setup_theme', 'themembb_theme_support');
 
@@ -67,7 +70,7 @@ function themembb_register_scripts() {
     }
 
     // Conditional scripts
-    if (is_page('specific-page-slug') || is_single('specific-post-slug')) {
+    if (is_singular()) {
         $conditional_scripts = [
             'lightbox'    => 'lightbox.js',
             'hover-text'  => 'hover-text.js',
