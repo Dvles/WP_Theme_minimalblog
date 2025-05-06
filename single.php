@@ -18,13 +18,9 @@ if( have_posts()){
 <main class="main-content block">
         <article class="article">
             <section class="article-image">
-                <img src="https://placehold.co/600x400" alt="Blog Image" class="article-image-img lightbox-trigger">
-                <section class="article-gallery">
-                    <img src="https://placehold.co/600x400" alt="Blog Image" class="article-gallery-img lightbox-trigger">
-                    <img src="https://placehold.co/600x400" alt="Blog Image" class="article-gallery-img  lightbox-trigger">
-                    <img src="https://placehold.co/600x400" alt="Blog Image" class="article-gallery-img   lightbox-trigger">
+            <?php get_template_part('template-parts/content','feat-image'); ?>
                 </section>
-            </section>
+            
             
             <section class="article-content">
                 <h1 class="block__title"><?php the_title(); ?></h1>
@@ -32,7 +28,7 @@ if( have_posts()){
 
                 <section class="article-body">
                     <p class="article-paragraph">
-                    <?php the_content(); ?>
+                    <?php get_template_part('template-parts/content','article'); ?>
                     </p>
 
                     <h6 class="article-paragraph block">
