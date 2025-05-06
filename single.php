@@ -33,8 +33,8 @@ if( have_posts()){
 
                     <h6 class="article-paragraph block">
                         <ul>
-                            <li><a href="" class="block__link">share</a></li>
-                            <li><a href="" class="block__link">bookmark</a></li>
+                            <li><a href="#" class="block__link" id="share-btn">Share</a></li>
+                            <li><a href="#" onclick="alert('Press Ctrl+D (or Cmd+D on Mac) to bookmark this page.'); return false;" class="block__link">Bookmark</a></li>
                             <li><a href="" class="block__link">download</a></li>
                         </ul>
 

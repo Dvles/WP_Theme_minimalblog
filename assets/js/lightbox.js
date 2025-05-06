@@ -22,3 +22,17 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+// Sharing elements
+
+document.getElementById('share-btn')?.addEventListener('click', function (e) {
+    e.preventDefault();
+    if (navigator.share) {
+        navigator.share({
+            title: document.title,
+            url: window.location.href
+        }).catch(console.error);
+    } else {
+        alert('Share not supported on this browser.');
+    }
+});
